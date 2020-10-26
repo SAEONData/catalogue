@@ -1,0 +1,21 @@
+name: deployment@next
+
+on:
+  pull_request:
+    branches:
+      - next
+  push:
+    branches:
+      - next
+
+jobs:
+  deploy:
+    runs-on: catalogue.saeon.dvn
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: next
+
+      - name: test
+        run: |
+          echo Hello
